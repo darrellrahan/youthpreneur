@@ -1,4 +1,5 @@
-import { Pressable, ScrollView, Text, View } from "react-native";
+import { Link } from "expo-router";
+import { ScrollView, Text, View } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import LeaderboardCard from "./LeaderboardCard";
 
@@ -82,11 +83,14 @@ export default function Challenge() {
         <ScrollView contentContainerStyle={{ padding: 32 }}>
           <View className="flex-row justify-between items-center mb-12">
             <Text className="text-2xl font-bold">Leaderboard</Text>
-            <Pressable className="bg-[#A21942] py-2.5 px-5 rounded-md">
+            <Link
+              href="/challenge"
+              className="bg-[#A21942] py-2.5 px-5 rounded-md"
+            >
               <Text className="text-white font-bold text-center text-base">
                 Play
               </Text>
-            </Pressable>
+            </Link>
           </View>
           {leaderboard.map((data, index) => (
             <LeaderboardCard

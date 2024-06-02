@@ -59,7 +59,7 @@ export default function Index() {
               </Pressable>
             </View>
             <Link
-              href="/choose-language"
+              href="/choose-country"
               className="bg-[#A21942] text-center p-3 rounded-md"
             >
               <Text className="text-white font-bold text-base">Sign In</Text>

@@ -8,18 +8,22 @@ export default function Profile() {
     {
       icon: <Octicons name="person-fill" color="#A21942" size={24} />,
       option: "Edit Profile",
+      link: "/edit-profile",
     },
     {
       icon: <Fontisto name="locked" color="#A21942" size={24} />,
       option: "Change Password",
+      link: "/change-password",
     },
     {
       icon: <Entypo name="location-pin" color="#A21942" size={24} />,
       option: "Change Location",
+      link: "/change-location",
     },
     {
       icon: <FontAwesome name="language" color="#A21942" size={24} />,
       option: "Change Language",
+      link: "/change-language",
     },
   ];
 
@@ -38,6 +42,7 @@ export default function Profile() {
             key={data.option}
             icon={data.icon}
             option={data.option}
+            link={data.link}
           />
         ))}
       </SafeAreaView>

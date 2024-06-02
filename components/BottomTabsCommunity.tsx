@@ -1,19 +1,52 @@
-import { Entypo, FontAwesome6, Fontisto } from "@expo/vector-icons";
-import { Pressable, ScrollView, Text, View } from "react-native";
+import { FontAwesome6, Fontisto } from "@expo/vector-icons";
+import { Link } from "expo-router";
+import { ScrollView, Text, View } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+import CommunityCard from "./CommunityCard";
 
 export default function Community() {
+  const communities = [
+    {
+      imageSource: require("../assets/images/community-2.png"),
+      name: "Young on Top (YOT)",
+      address: "Jl. Gatot Subroto No. 1, Bandung",
+    },
+    {
+      imageSource: require("../assets/images/community-3.png"),
+      name: "StartupLokal",
+      address: "Jl. Ahmad Yani No. 2, Bandung",
+    },
+    {
+      imageSource: require("../assets/images/community-4.png"),
+      name: "Angin.id",
+      address: "Jl. Katamso No. 3, Bandung",
+    },
+    {
+      imageSource: require("../assets/images/community-5.png"),
+      name: "Dailysocial.id",
+      address: "Jl. Cikutra No. 4, Bandung",
+    },
+    {
+      imageSource: require("../assets/images/community-6.png"),
+      name: "IYE",
+      address: "Jl. Dago No. 5, Bandung",
+    },
+  ];
+
   return (
     <SafeAreaProvider>
       <SafeAreaView className="flex-1">
         <ScrollView contentContainerStyle={{ padding: 32 }}>
           <View className="flex-row justify-between items-center mb-12">
             <Text className="text-2xl font-bold">Community</Text>
-            <Pressable className="bg-[#A21942] py-2.5 px-5 rounded-md">
+            <Link
+              href="/my-community"
+              className="bg-[#A21942] py-2.5 px-5 rounded-md"
+            >
               <Text className="text-white font-bold text-center text-base">
                 My Community
               </Text>
-            </Pressable>
+            </Link>
           </View>
           <View className="flex-row justify-between items-center p-4 border border-[#7C7C7C30] rounded-md mb-6">
             <View className="flex-row items-center">
@@ -26,27 +59,14 @@ export default function Community() {
             </View>
             <Fontisto name="locked" size={20} />
           </View>
-          <View className="p-4 border border-[#7C7C7C30] rounded-md mb-6">
-            <View className="flex-row items-center mb-6">
-              <View className="w-14 h-14 items-center justify-center rounded-full border border-[#7c7c7c30]">
-                <Text className="font-bold text-2xl">71</Text>
-              </View>
-              <View className="ml-4">
-                <Text className="font-semibold text-base mb-1">Block 71</Text>
-                <View className="flex-row items-center -translate-x-1">
-                  <Entypo name="location-pin" color="#7c7c7c" size={14} />
-                  <Text className="font-semibold text-[#7c7c7c] text-[13px] ml-1">
-                    Jl. Ir. H. Juanda No.108, Bandung
-                  </Text>
-                </View>
-              </View>
-            </View>
-            <Pressable className="bg-[#A21942] p-2.5 rounded-md">
-              <Text className="text-white font-bold text-center text-base">
-                Join
-              </Text>
-            </Pressable>
-          </View>
+          {communities.map((data) => (
+            <CommunityCard
+              key={data.name}
+              imageSource={data.imageSource}
+              name={data.name}
+              address={data.address}
+            />
+          ))}
         </ScrollView>
       </SafeAreaView>
     </SafeAreaProvider>
